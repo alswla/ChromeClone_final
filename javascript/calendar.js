@@ -458,12 +458,20 @@ function saveTodoInStoarge() {
 }
 
 // 불러오기
+// function getTodoFromStorage() {
+//   if (localStorage.getItem("tasks" === null)) {
+//     return;
+//   }
+
+//   todoArr.push(...JSON.parse(localStorage.getItem("tasks"))); // todoArr에서 tasks property의 value값을 불러와라
+// }
+
 function getTodoFromStorage() {
-  if (localStorage.getItem("tasks" === null)) {
-    return;
+  if (localStorage.getItem("tasks") === null) {
+    return [];
   }
 
-  todoArr.push(...JSON.parse(localStorage.getItem("tasks"))); // todoArr에서 tasks property의 value값을 불러와라
+  return JSON.parse(localStorage.getItem("tasks"));
 }
 
 // ------------------------------------------------
