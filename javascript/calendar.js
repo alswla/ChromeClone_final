@@ -24,6 +24,9 @@ const todoLists = document.querySelector(".todo-list");
 const addtodoSubmit = document.querySelector(".add-todo-btn");
 const deleteBtn = document.querySelector(".delete");
 
+const inboxbtn = document.querySelector(".goToInbox");
+const todaybtn = document.querySelector(".goToToday");
+
 // 월을 숫자로는 가져와도 글자로는 가져오지 못하므로 선택가능하도록 배열만들기
 const months = [
   "January",
@@ -467,9 +470,6 @@ function getTodoFromStorage() {
 // 페이지 이동 버튼 PART
 
 // 다른 버튼 누르면 메인 페이지 이동 (main.js와 동일 - 작업중)
-
-const inboxbtn = document.querySelector(".goToInbox");
-const todaybtn = document.querySelector(".goToToday");
 
 inboxbtn.addEventListener("click", (e) => {
   window.location.href =
