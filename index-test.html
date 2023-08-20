@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style-test.css" class="css" />
+    <title>君の名は</title>
+  </head>
+  <body>
+    <div class="login-background indexFirst">
+      <img src="./css/gif/03.gif" class="backgroundImg" />
+      <form id="loginForm">
+        <h2 class="loginText">너의 이름은</h2>
+        <h2 class="loginDescription">
+          계속 뭔가를, 누군가를, 찾고있는 듯한 기분이 들어
+        </h2>
+        <!-- <input
+          type="text"
+          id="usernameInput"
+          placeholder="이름을 입력하세요"
+          autofocus
+          required
+          minlength="5"
+          onkeydown="handle(event)"
+          class="username-input"
+        /> -->
+        <input
+          type="text"
+          id="usernameInput"
+          placeholder="이름을 입력하세요"
+          autofocus
+          required
+          minlength="2"
+          class="username-input"
+        />
+        <input type="submit" value="Log In" class="login-btn" />
+      </form>
+    </div>
+
+    <ul class="dots">
+      <li class="dot"></li>
+      <li class="dot"></li>
+      <li class="dot"></li>
+      <li class="dot"></li>
+      <li class="dot"></li>
+      <li class="dot"></li>
+      <li class="dot"></li>
+      <li class="dot"></li>
+      <li class="dot"></li>
+      <li class="dot"></li>
+      <li class="dot"></li>
+    </ul>
+
+    <div class="todoApp-screen">
+      <div class="left-arrow">
+        <i class="fa-solid fa-circle-chevron-left fa-2xl"></i>
+      </div>
+      <div class="mainBox">
+        <header id="topMenu">
+          <div class="leftMenu">
+            <img src="./css/icon/3bar.png" class="tabBarCloseBtnImg" />
+            <!-- tabbarclose누르면 menuTap 접히도록 -->
+            <img src="./css/icon/home.png" class="homeBtnImg" />
+            <!-- homeButton누르면 메인페이지로 이동하도록 -->
+          </div>
+        </header>
+
+        <div class="contentsBox">
+          <section id="leftBox">
+            <div class="menuBox">
+              <h3 class="clock">00:00</h3>
+              <h3 class="goToInbox">Inbox</h3>
+              <!-- <h3 class="goToUpcoming">Upcoming</h3> -->
+              <h3 class="goToToday">Today</h3>
+            </div>
+
+            <div class="projectBoard">
+              <h3 class="projectTab">Memo</h3>
+              <ul class="projectMenu">
+                <!-- <li class="showProject"></li> 
+                    접으면 접히고 피면 안에 내용물 보이도록 -->
+                <button class="addProjectBtn">
+                  <img src="./css/icon/plus.png" alt="project add btn" />
+                  Add Memo
+                </button>
+                <!-- 여기에 추가하면 프로젝트 생김 
+                      프로젝트 li 클릭하면 다른 페이지로 넘어가야함. 
+                      input? li안에 input?-->
+              </ul>
+            </div>
+          </section>
+
+          <main id="rightBox">
+            <nav id="userBox">
+              <div class="profileBox">
+                <div class="myProfile">
+                  <label for="profileSelect" class="profileImgLabel">
+                    <img
+                      src="./css/icon//character.png"
+                      alt="choose image"
+                      class="profileImgDefault"
+                    />
+                    <input
+                      id="profileSelect"
+                      type="file"
+                      accept="image/*"
+                      hidden
+                      class="ProfileFileInput"
+                    />
+                    <!-- 이미지 파일 선택하면 바뀌도록 - JS -->
+                  </label>
+                </div>
+                <!-- <h2 class="myprofile__default">로그인 해주세요</h2> -->
+                <div class="profile__header">
+                  <h2 class="myprofile__greeting hidden">너의 이름은,</h2>
+                  <h2 class="myprofile__name hidden"></h2>
+                </div>
+                <!-- 이름 입력값 여기로 불러오도록 hello랑 같이 - JS -->
+              </div>
+
+              <div class="quoteBox">
+                <h3 class="quoteBox__jp"></h3>
+                <h3 class="quoteBox__kr"></h3>
+              </div>
+            </nav>
+
+            <section id="wrapperContainer">
+              <!-- calendar -->
+              <div class="left-side">
+                <div class="calendar">
+                  <div class="month-index">
+                    <i class="fa-solid fa-chevron-left prev"></i>
+                    <div class="month">August 2023</div>
+                    <i class="fa-solid fa-chevron-right next"></i>
+                  </div>
+
+                  <div class="weekdays">
+                    <div>sun</div>
+                    <div>mon</div>
+                    <div>tue</div>
+                    <div>wed</div>
+                    <div>thu</div>
+                    <div>fri</div>
+                    <div>sat</div>
+                  </div>
+
+                  <div class="dates"></div>
+                </div>
+              </div>
+
+              <!-- todo list -->
+              <div class="right-side">
+                <div class="todo-schedule">
+                  <div class="todo-day">Sat</div>
+                  <div class="todo-date">19 August 2023</div>
+                </div>
+                <div class="todo-list">
+                  <!-- js로 구현할 부분 -->
+                  <!-- <div class="todos">
+                    <div class="todo-contents">
+                      <span class="check">
+                        <i class="fa-solid fa-check"></i>
+                      </span>
+                      <h3 class="todo-title">To do 1</h3>
+                    </div>
+                    <div class="todo-time">3:00pm - 6:00pm</div>
+                  </div> -->
+                </div>
+
+                <div class="add-todo-container">
+                  <div class="add-todo-header">
+                    <div class="todo-header-title">Add Task</div>
+                    <i class="fa-solid fa-xmark close"></i>
+                  </div>
+                  <div class="add-todo-main">
+                    <div class="add-todo-input">
+                      <input
+                        type="text"
+                        placeholder="Title"
+                        class="todo-title"
+                      />
+                    </div>
+                    <div class="add-todo-input">
+                      <input
+                        type="text"
+                        placeholder="Start Time"
+                        class="todo-time-start"
+                      />
+                    </div>
+                    <div class="add-todo-input">
+                      <input
+                        type="text"
+                        placeholder="End Time"
+                        class="todo-time-end"
+                      />
+                    </div>
+                  </div>
+                  <div class="add-todo-footer">
+                    <button class="add-todo-btn">Add</button>
+                  </div>
+                </div>
+                <button class="add-todolist-btn">
+                  <i class="fa-solid fa-plus"></i>
+                </button>
+              </div>
+            </section>
+          </main>
+        </div>
+      </div>
+      <div class="right-arrow">
+        <i class="fa-solid fa-circle-chevron-right fa-2xl"></i>
+      </div>
+    </div>
+
+    <div class="carousel_container">
+      <!-- <div class="carousel_items"> -->
+      <div class="carousel_item hidden">
+        <img src="./img/01.png" alt="" />
+      </div>
+      <div class="carousel_item hidden">
+        <img src="./img/02.png" alt="" />
+      </div>
+      <div class="carousel_item hidden">
+        <img src="./img/03.jpeg" alt="" />
+      </div>
+      <div class="carousel_item hidden">
+        <img src="./img/04.png" alt="" />
+      </div>
+      <div class="carousel_item hidden">
+        <img src="./img/05.png" alt="" />
+      </div>
+      <div class="carousel_item hidden">
+        <img src="./img/06.png" alt="" />
+      </div>
+      <div class="carousel_item hidden">
+        <img src="./img/07.png" alt="" />
+      </div>
+      <div class="carousel_item hidden">
+        <img src="./img/08.png" alt="" />
+      </div>
+      <div class="carousel_item hidden">
+        <img src="./img/09.jpeg" alt="" />
+      </div>
+      <div class="carousel_item hidden">
+        <img src="./img/10.jpeg" alt="" />
+      </div>
+      <div class="carousel_item hidden">
+        <img src="./img/11.jpeg" alt="" />
+      </div>
+      <!-- </div> -->
+    </div>
+
+    <script src="./javascript/calendar.js"></script>
+    <script src="./javascript/carousel.js"></script>
+    <script src="./javascript/nav.js"></script>
+    <!-- <script src="../javascript/tasklist.js"></script> -->
+    <script src="./javascript/profile.js"></script>
+    <script src="./javascript/random background.js"></script>
+    <!-- <script src="./javascript/login.js"></script> -->
+    <script src="./javascript/login-test.js"></script>
+    <script
+      src="https://kit.fontawesome.com/3094465d0e.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,78 @@
+@import "./components/reset.css";
+@import "./components/font.css";
+
+.indexFirst {
+  z-index: 100;
+}
+.backward {
+  display: none;
+  z-index: 0;
+}
+
+.login-background {
+  font-family: "Arita";
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 100vw;
+  min-height: 100vh;
+}
+.backgroundImg {
+  min-width: 100vw;
+  height: 100vh;
+}
+.login-btn {
+  outline: none;
+  border: none;
+  background: transparent;
+  padding: 20px;
+  display: none;
+}
+
+#loginForm {
+  position: absolute;
+  top: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.loginText {
+  color: white;
+  font-size: 80px;
+  text-shadow: 1px 2px 6px rgba(0, 0, 0, 0.7);
+  /* position: relative;
+    z-index: 1; */
+  margin-bottom: 13px;
+}
+.loginDescription {
+  color: white;
+  font-size: 15px;
+  text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.9);
+  /* position: relative;
+    z-index: 1; */
+  margin: 10px 0px;
+}
+
+#usernameInput {
+  padding: 10px;
+  width: 70%;
+  max-width: 400px;
+  height: 40px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+  /* transform: perspective(800px) rotateX(10deg); */
+  padding: 0px 20px;
+}
+
+#usernameInput::placeholder {
+  text-align: center;
+  font-family: "Arita";
+}
