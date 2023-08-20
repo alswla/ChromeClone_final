@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>너의 할일은</title>
+  </head>
+  <body>
+    <ul class="dots">
+      <li class="dot"></li>
+      <li class="dot"></li>
+      <li class="dot"></li>
+      <li class="dot"></li>
+      <li class="dot"></li>
+      <li class="dot"></li>
+      <li class="dot"></li>
+      <li class="dot"></li>
+      <li class="dot"></li>
+      <li class="dot"></li>
+      <li class="dot"></li>
+    </ul>
+
+    <div class="todoApp-screen">
+      <div class="left-arrow">
+        <i class="fa-solid fa-circle-chevron-left fa-2xl"></i>
+      </div>
+      <div class="mainBox">
+        <header id="topMenu">
+          <div class="leftMenu">
+            <img src="../css/icon/3bar.png" class="tabBarCloseBtnImg" />
+            <!-- tabbarclose누르면 menuTap 접히도록 -->
+            <img src="../css/icon/home.png" class="homeBtnImg" />
+            <!-- homeButton누르면 메인페이지로 이동하도록 -->
+          </div>
+        </header>
+
+        <div class="contentsBox">
+          <section id="leftBox">
+            <div class="menuBox">
+              <h3 class="clock">00:00</h3>
+              <h3 class="goToInbox">Inbox</h3>
+              <!-- <h3 class="goToUpcoming">Upcoming</h3> -->
+              <h3 class="goToToday">Today</h3>
+            </div>
+
+            <div class="projectBoard">
+              <h3 class="projectTab">Projects</h3>
+              <div class="projectMenu">
+                <!-- <li class="showProject"></li> 
+                  접으면 접히고 피면 안에 내용물 보이도록 -->
+                <button class="addProjectBtn">
+                  <img src="../css/icon/plus.png" alt="project add btn" />
+                  Add Project
+                </button>
+
+                <!-- js로 구현할 부분 -->
+                <!-- <div class="project">
+                    <div class="project-contents">
+                      <span class="check">
+                        <i class="fa-solid fa-check"></i>
+                      </span>
+                      <h3 class="project-title">Project 1</h3>
+                    </div>
+                    <div class="project-time">Due: 8/25 /div>
+                  </div> -->
+
+                <!-- <div class="add-project-container">
+                  <div class="add-project-header">
+                    <div class="project-header-title">Add Task</div>
+                    <i class="fa-solid fa-xmark close"></i>
+                  </div>
+
+                  <div class="add-project-main">
+                    <div class="add-project-input">
+                      <input
+                        type="text"
+                        placeholder="Title"
+                        class="project-title"
+                      />
+                    </div>
+                    <div class="add-project-input">
+                      <input
+                        type="text"
+                        placeholder="Start Time"
+                        class="project-time-start"
+                      />
+                    </div>
+                    <div class="add-project-input">
+                      <input
+                        type="text"
+                        placeholder="End Time"
+                        class="project-time-end"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="add-project-footer">
+                    <button class="add-project-btn">Add</button>
+                  </div>
+                </div> -->
+
+                <!-- 여기에 추가하면 프로젝트 생김 
+                    프로젝트 li 클릭하면 다른 페이지로 넘어가야함. 
+                    input? li안에 input?-->
+              </div>
+            </div>
+          </section>
+
+          <main id="rightBox">
+            <nav id="userBox">
+              <div class="profileBox">
+                <div class="myProfile">
+                  <label for="profileSelect" class="profileImgLabel">
+                    <img
+                      src="../css/icon/미츠하.png"
+                      alt="choose image"
+                      class="profileImgDefault"
+                    />
+                    <input
+                      id="profileSelect"
+                      type="file"
+                      accept="image/*"
+                      hidden
+                      class="ProfileFileInput"
+                    />
+                    <!-- 이미지 파일 선택하면 바뀌도록 - JS -->
+                  </label>
+                </div>
+                <!-- <h2 class="myprofile__default">로그인 해주세요</h2> -->
+                <div class="profile__header">
+                  <h2 class="myprofile__greeting hidden">너의 이름은,</h2>
+                  <h2 class="myprofile__name hidden"></h2>
+                </div>
+                <!-- 이름 입력값 여기로 불러오도록 hello랑 같이 - JS -->
+              </div>
+
+              <div class="quoteBox">
+                <h3 class="quoteBox__jp"></h3>
+                <h3 class="quoteBox__kr"></h3>
+              </div>
+            </nav>
+
+            <section id="taskLists">
+              <div id="overdueBox">
+                <div class="overdueBox__header">
+                  <button class="arrowBtn">
+                    <img src="../css/icon/down-arrow.png" />
+                  </button>
+
+                  <h3 class="overdueBox__text">Overdue</h3>
+                </div>
+
+                <ul class="ovdedueBox__list"></ul>
+              </div>
+
+              <div id="todayBox">
+                <div class="today__date">
+                  <button class="arrowBtn">
+                    <img src="../css/icon/down-arrow.png" />
+                  </button>
+                  <div class="today">
+                    <span class="today__day"></span>
+                    <span class="today__Month"></span>
+                    <span class="today__text">Today</span>
+                    <span class="today__Date"></span>
+                  </div>
+                </div>
+
+                <div class="today__list">
+                  <!-- 이제여기에 리스트 추가되어야함 -->
+                  <button class="addTodayBtn">
+                    <img src="../css/icon/plus.png" alt="task add btn" />
+                    Add task
+                  </button>
+
+                  <!-- <div class="today-task-all">
+                    <div class="today-contents">
+                      <span class="check">
+                        <i class="fa-solid fa-check"></i>
+                      </span>
+                      <h3 class="today-task-title">Task 1</h3>
+                    </div>
+                    <div class="today-task-time">11:00 AM</div>
+                  </div> -->
+
+                  <div class="add-today-container active">
+                    <div class="add-today-header">
+                      <div class="today-header-title">Add Task</div>
+                      <i class="fa-solid fa-xmark today close"></i>
+                    </div>
+
+                    <div class="add-today-main">
+                      <div class="add-today-input">
+                        <input
+                          type="text"
+                          placeholder="Title"
+                          class="today-title"
+                        />
+                      </div>
+                      <div class="add-today-input">
+                        <input
+                          type="text"
+                          placeholder="Start Time"
+                          class="today-time-start"
+                        />
+                      </div>
+                      <div class="add-today-input">
+                        <input
+                          type="text"
+                          placeholder="End Time"
+                          class="today-time-end"
+                        />
+                      </div>
+                    </div>
+
+                    <div class="add-today-footer">
+                      <button class="add-today-btn">Add</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </main>
+        </div>
+      </div>
+      <div class="right-arrow">
+        <i class="fa-solid fa-circle-chevron-right fa-2xl"></i>
+      </div>
+    </div>
+
+    <div class="carousel_container">
+      <!-- <div class="carousel_items"> -->
+      <div class="carousel_item hidden">
+        <img src="../img/01.png" alt="" />
+      </div>
+      <div class="carousel_item hidden">
+        <img src="../img/02.png" alt="" />
+      </div>
+      <div class="carousel_item hidden">
+        <img src="../img/03.jpeg" alt="" />
+      </div>
+      <div class="carousel_item hidden">
+        <img src="../img/04.png" alt="" />
+      </div>
+      <div class="carousel_item hidden">
+        <img src="../img/05.png" alt="" />
+      </div>
+      <div class="carousel_item hidden">
+        <img src="../img/06.png" alt="" />
+      </div>
+      <div class="carousel_item hidden">
+        <img src="../img/07.png" alt="" />
+      </div>
+      <div class="carousel_item hidden">
+        <img src="../img/08.png" alt="" />
+      </div>
+      <div class="carousel_item hidden">
+        <img src="../img/09.jpeg" alt="" />
+      </div>
+      <div class="carousel_item hidden">
+        <img src="../img/10.jpeg" alt="" />
+      </div>
+      <div class="carousel_item hidden">
+        <img src="../img/11.jpeg" alt="" />
+      </div>
+      <!-- </div> -->
+    </div>
+
+    <script src="../javascript/carousel.js"></script>
+    <script src="../javascript/profile.js"></script>
+    <script src="../javascript/nav.js"></script>
+    <script src="../javascript/tasklist.js"></script>
+    <script src="../javascript/main.js"></script>
+    <script
+      src="https://kit.fontawesome.com/3094465d0e.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

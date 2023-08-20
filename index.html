@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/login.css" />
+    <title>君の名は</title>
+  </head>
+  <body>
+    <div class="login-background">
+      <form id="loginForm">
+        <h2 class="loginText">너의 이름은</h2>
+        <h2 class="loginDescription">
+          계속 뭔가를, 누군가를, 찾고있는 듯한 기분이 들어
+        </h2>
+        <input
+          type="text"
+          id="usernameInput"
+          placeholder="이름을 입력하세요"
+          autofocus
+          required
+          minlength="5"
+          onkeydown="handleEnter(event)"
+        />
+      </form>
+    </div>
+
+    <script src="/Users/chloe/Desktop/Nomad coder/vanilla_nomadcoder_final_2023/javascript/login.js"></script>
+  </body>
+</html>
