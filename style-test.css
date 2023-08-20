@@ -1,0 +1,16 @@
+@import "../css/components/font.css";
+@import "../css/components/reset.css";
+@import "../css/components/variable.css";
+@import "../css/components/header.css";
+/* @import "../css/login.css"; */
+@import "../css/login-test.css";
+
+@import "../css/screens/main.css";
+@import "../css/screens/leftBox.css";
+@import "../css/screens/rightBox.css";
+@import "../css/screens/task-section.css";
+@import "../css/screens/calender_page.css";
+
+* {
+  box-sizing: border-box;
+}
