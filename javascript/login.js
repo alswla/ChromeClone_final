@@ -7,7 +7,8 @@ function handleEnter(event) {
 
     if (username !== "") {
       // 입력된 값이 공백이 아닌 경우에만 페이지 전환
-      window.location.href = "../html/calendar.html";
+      window.location.href =
+        "/Users/chloe/Desktop/Nomad coder/ChromeClone_final/html/calendar.html";
       localStorage.setItem("username", username);
     }
   }
