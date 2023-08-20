@@ -1,0 +1,116 @@
+body {
+  height: 100vh;
+  min-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Myriad", "Arita", "OpenSans";
+}
+
+/* todo list 내용 화면 전체박스 */
+.todoApp-screen {
+  /* position: fixed; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 98;
+}
+
+.mainBox {
+  max-width: 1100px;
+  height: 650px;
+  border-radius: 15px;
+  overflow: hidden;
+
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.contentsBox {
+  width: 100%;
+  display: flex;
+  /* justify-content: center; */
+  width: 100%;
+  height: 620px;
+}
+
+.menuBox h3:nth-child(2),
+.menuBox h3:nth-child(3),
+.menuBox h3:last-child {
+  cursor: pointer;
+}
+
+button {
+  background: none;
+  border: none;
+  padding: 0px;
+}
+
+/* 캐로우셀 화살표 */
+.left-arrow,
+.right-arrow {
+  width: 100px;
+  height: 100px;
+  color: var(--red);
+  font-size: 30px;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 0px 20px;
+}
+
+/* 캐로우셀 배경화면 - 화살표 */
+
+.showing {
+  z-index: 2;
+  display: flex;
+}
+.hidden {
+  display: none;
+}
+
+.carousel_container {
+  min-width: 100vw;
+  min-height: 100vh;
+  position: absolute;
+  top: 0;
+}
+.carousel_item {
+  width: 100%;
+  /* justify-content: center;
+  align-items: flex-start; */
+  z-index: 1;
+}
+.carousel_item img {
+  min-width: 100vw;
+  height: 100vh;
+  /* object-fit: cover; */
+}
+
+/* 캐로우셀 배경화면 - 선택형 */
+
+.dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* position: absolute;
+  top: 48px; */
+  z-index: 90;
+  margin: 10px 0px;
+}
+
+.dot {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: rgba(233, 67, 67, 0.6);
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+/* 뭔가 postion에 fixed, absolute가 있으면 z-index가 안먹는느낌임
+해당 부분 찾아보기 */

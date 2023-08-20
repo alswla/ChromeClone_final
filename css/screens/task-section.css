@@ -1,0 +1,298 @@
+/* @import "../components/reset.css"; */
+@import "../components/font.css";
+@import "../components/variable.css";
+
+#taskLists {
+  width: 95%;
+  height: 80%;
+  border-radius: 40px;
+  border: 3px solid rgba(189, 53, 23, 0.3);
+}
+
+#overdueBox {
+  width: 800;
+  margin: 20px 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.overdueBox__header {
+  display: flex;
+  padding: 10px 0px;
+  align-items: center;
+}
+.overdueBox__text {
+  font-size: 20px;
+  font-weight: 800;
+  margin-left: 10px;
+}
+.arrowBtn > img {
+  width: 15px;
+  height: 15px;
+  filter: opacity(0.4) drop-shadow(0 0 0 rgb(96, 96, 96));
+}
+#todayBox {
+  width: 800;
+  margin: 20px 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.today__date {
+  display: flex;
+  padding: 10px 0px;
+  align-items: center;
+}
+.today {
+  margin-left: 10px;
+}
+.today > span {
+  font-size: 20px;
+  font-weight: 800;
+}
+.addTodayBtn {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+
+  height: 40px;
+  font-size: 15px;
+  color: rgba(96, 96, 96, 0.7);
+
+  padding: 20px 5px;
+  cursor: pointer;
+}
+.addTodayBtn > img {
+  margin-right: 10px;
+  width: 15px;
+  height: 15px;
+  filter: opacity(0.4) drop-shadow(0 0 0 rgb(96, 96, 96));
+}
+
+/* -------------------------------------------------- */
+.today__list {
+  width: 100%;
+  position: relative;
+}
+
+.add-today-container {
+  position: absolute;
+  top: 10px;
+  left: 30%;
+
+  width: 60%;
+  max-height: 0;
+  overflow: hidden;
+
+  border-radius: 5px;
+  background-color: white;
+
+  transform: translateX(-50%);
+  transition: max-height 0.5s;
+
+  font-family: "Myriad";
+}
+/* active클래스 js로 추가하면 창 나타나도록 */
+.active {
+  max-height: 400px;
+}
+.add-today-header {
+  width: 100%;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 20px;
+  font-weight: 800;
+  color: var(--purple);
+  border-bottom: 1px solid rgb(241, 241, 241);
+}
+.add-today-header .close {
+  font-size: 1em;
+  cursor: pointer;
+}
+.add-today-header .close:hover {
+  color: var(--primary-clr);
+}
+.today-header-title {
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+.add-today-main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  font-family: "Myraid";
+  gap: 5px;
+  padding: 20px;
+}
+.add-today-input {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.add-today-input input {
+  width: 100%;
+  height: 100%;
+  padding: 10 10px;
+
+  outline: none;
+  border: none;
+  border-bottom: 1px solid rgb(241, 241, 241);
+
+  font-size: 1rem;
+  font-weight: 400;
+  color: rgb(79, 79, 79);
+}
+.add-today-input input::placeholder {
+  font-family: "Arita";
+  color: var(--primary-clr);
+}
+.add-today-input input:focus {
+  border-color: var(--pink-down);
+}
+.add-today-input input:focus::placeholder {
+  color: var(--purple);
+}
+
+/* 세부내용 입력 버튼 wrapper */
+.add-today-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+/* 세부내용 입력 완료 버튼 */
+.add-today-btn {
+  height: 30px;
+  font-size: 1rem;
+  font-weight: 800;
+
+  color: rgb(79, 79, 79);
+  /* background-color: var(--primary-clr); */
+  border-radius: 5px;
+  padding: 5px 10px;
+  /* border: 1px solid var(--red-bright); */
+}
+.add-today-btn:hover {
+  color: white;
+  background-color: var(--red);
+}
+
+.active {
+  max-height: 400px;
+}
+
+/* today task all (입력 이후) */
+.today-task-all {
+  /* position: relative; */
+  width: 95%;
+  min-height: 60px;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+
+  gap: 5px;
+  padding: 0 10px 0 10px;
+  color: white;
+
+  /* cursor: pointer; */
+  background: linear-gradient(90deg, var(--primary-clr), transparent);
+}
+/* today-task-all칸 번갈아가면서 색상변경효과 */
+.today-task-all:nth-child(even) {
+  background: transparent;
+  color: var(--purple);
+}
+.today-task-all:nth-child(even) .todo-time {
+  color: var(--purple);
+}
+/* today-task-all칸 hover시 색상변경효과 */
+.today-task-all:hover {
+  background: linear-gradient(90deg, var(--purple), transparent);
+  color: white;
+}
+
+/* todo list 건들 글씨 정렬 등 */
+.today-contents {
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+  width: 100%;
+  height: 50%;
+  /* justify-content: space-between; */
+}
+.today-contents > h3 {
+  margin-bottom: 5px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+/* .today-contents {
+  margin-left: 10px;
+  position: absolute;
+  right: 0;
+} */
+/* 제목(할일 제목) */
+.today-task-title {
+  font-size: 1rem;
+  font-weight: 400;
+  margin-left: 10px;
+}
+
+/* todo 시간 */
+.today-task-time {
+  width: 100%;
+  /* height: 40px; */
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: var(--purple);
+  margin-left: 5px;
+  pointer-events: none;
+}
+.today-task-all:hover .today-task-time {
+  color: white;
+}
+
+/* 체크모양 정렬 및 이후 hover시 배경크기 */
+.check {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* 체크모양 컬러 */
+.check > i {
+  color: var(--red);
+  font-size: 0.6rem;
+}
+/* todos칸 hover시 체크모양 컬러 */
+.today-task-all:hover .check {
+  background-color: white;
+}
+.today-task-all:hover .check > i {
+  color: var(--primary-clr);
+}
+
+/* 할일 목록 없을 때 */
+.no-todo {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-family: "Myriad";
+  color: rgb(79, 79, 79);
+}

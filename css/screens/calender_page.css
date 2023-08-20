@@ -1,0 +1,499 @@
+@import "../components/reset.css";
+@import "../components/font.css";
+@import "../components/header.css";
+
+@import "../screens/main.css";
+@import "../screens/rightBox.css";
+@import "../screens/leftBox.css";
+:root {
+  --red: #bd3517;
+  --red-bright: #ca867c;
+  --red-dark: #8f2620;
+  --primary-clr: #c69e97;
+  --pink-down: #764655;
+  --purple: #5c4f71;
+  --white: rgba(255, 255, 255, 0.6);
+}
+
+* {
+  /* font-family: "Arita"; */
+  box-sizing: border-box;
+}
+
+#wrapperContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 95%;
+  min-height: 80%;
+
+  border-radius: 40px;
+  border: 3px solid rgba(189, 53, 23, 0.3);
+}
+
+.left-side {
+  width: 60%;
+  height: 100%;
+  padding: 20px 0px 20px 20px;
+}
+
+.calendar {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  /* align-items: center; */
+
+  color: #878895;
+  background-color: #fff;
+  border-radius: 10px;
+}
+.calendar::before,
+.calendar::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  width: 12px;
+  height: 97%;
+  border-radius: 0 10px 10px 0;
+  background-color: var(--red-bright);
+  transform: translateY(-50%);
+}
+
+/* 날짜 이동 버튼 */
+.month-index {
+  font-family: "Myraid";
+  text-transform: capitalize;
+  color: var(--purple);
+
+  width: 100%;
+  height: 80px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 50px;
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.prev,
+.next {
+  cursor: pointer;
+}
+
+.prev:hover,
+.next:hover {
+  color: var(--red);
+}
+
+/* 요일 bar 정렬 */
+.weekdays {
+  width: 100%;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 10px;
+
+  font-size: 1rem;
+  font-weight: 800;
+  text-transform: capitalize;
+}
+/* 요일 안 글씨 정렬 */
+.weekdays div {
+  color: var(--purple);
+  width: 14.28%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* dates(날짜 박스) 정렬*/
+.dates {
+  width: 100%;
+  height: calc(100% - 160px);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 20px;
+  font-size: 1rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+/* date (일자) 정렬 */
+.date {
+  width: 14.28%;
+  height: 45px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  color: var(--pink-down);
+}
+
+/* 현재 월에 해당하는 날짜 & hover 효과 */
+.date:not(.prev-date, .next-date):hover {
+  color: #fff;
+  background-color: var(--purple);
+}
+
+/* 현재 캘린더의 이전&다음 월 날짜 */
+.dates .prev-date,
+.dates .next-date {
+  color: rgb(187, 187, 187);
+}
+
+.select {
+  position: relative;
+  font-size: 2rem;
+  color: white;
+  background-color: var(--red);
+}
+
+.select::before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 10px 2px var(--primary-clr);
+}
+
+.today {
+  font-size: 2rem;
+}
+
+.task {
+  position: relative;
+}
+.task::after {
+  content: "";
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  width: 70%;
+  height: 3px;
+  border-radius: 10px;
+  transform: translateX(-50%);
+  background-color: var(--red);
+}
+.task:hover::after {
+  background-color: white;
+}
+
+/* 달력 옆 todo list 구현 */
+.right-side {
+  position: relative;
+  width: 40%;
+  min-height: 100%;
+  padding: 20px 9px;
+
+  font-family: "Arita";
+}
+
+/* todo list 상단 선택한 날짜 헤더 */
+.todo-schedule {
+  width: 100%;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  padding: 0 40px;
+  margin: 40px 0 10px 0;
+  text-transform: capitalize;
+  font-family: "Myriad";
+}
+
+/* 날짜 헤더 - 요일 */
+.todo-day {
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+/* 날짜 헤더 - 일자 */
+.todo-date {
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgb(79, 79, 79);
+}
+
+/* JS 구현 후 표시될 입력칸 */
+/* todo list 목록 전체 */
+.todo-list {
+  width: 100%;
+  height: 100%;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  display: flex;
+  flex-direction: column;
+  padding: 3px;
+}
+
+.no-todo {
+  width: 100%;
+  height: 300px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-family: "Myriad";
+  color: rgb(79, 79, 79);
+}
+
+/* todo 한칸 */
+.todos {
+  position: relative;
+  width: 95%;
+  min-height: 60px;
+
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  flex-direction: column;
+
+  gap: 5px;
+  padding: 0 10px 0 10px;
+  color: white;
+
+  /* cursor: pointer; */
+  background: linear-gradient(90deg, var(--primary-clr), transparent);
+}
+/* todos칸 번갈아가면서 색상변경효과 */
+.todos:nth-child(even) {
+  background: transparent;
+  color: var(--purple);
+}
+.todos:nth-child(even) .todo-time {
+  color: var(--purple);
+}
+/* todos칸 hover시 색상변경효과 */
+.todos:hover {
+  background: linear-gradient(90deg, var(--purple), transparent);
+  color: white;
+}
+/* todo 시간 */
+.todo-time {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--white);
+  margin-left: 5px;
+  pointer-events: none;
+}
+.todos:hover .todo-time {
+  color: white;
+}
+
+/* todo list 건들 글씨 정렬 등 */
+.todo-contents {
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+  /* justify-content: space-between; */
+}
+.todo-contents > h3 {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.todo-contents .delete {
+  margin-left: 10px;
+  position: absolute;
+  right: 0;
+}
+/* 제목(할일 제목) */
+.todo-contents .todo-title {
+  font-size: 1rem;
+  font-weight: 400;
+  margin-left: 10px;
+}
+
+/* 체크모양 정렬 및 이후 hover시 배경크기 */
+.check {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* 체크모양 컬러 */
+.check > i {
+  color: var(--red);
+  font-size: 0.6rem;
+}
+/* todos칸 hover시 체크모양 컬러 */
+.todos:hover .check {
+  background-color: white;
+}
+.todos:hover .check > i {
+  color: var(--primary-clr);
+}
+
+/* JS 구현전 입력칸 */
+/* todo 세부내용 입력칸 css 구현 */
+.add-todo-container {
+  position: absolute;
+  bottom: 75px;
+  left: 52%;
+
+  width: 90%;
+  max-height: 0;
+  overflow: hidden;
+
+  border-radius: 5px;
+  background-color: white;
+
+  transform: translateX(-50%);
+  transition: max-height 0.5s;
+
+  font-family: "Myriad";
+}
+/* active클래스 js로 추가하면 창 나타나도록 */
+.add-todo-container.active {
+  max-height: 400px;
+}
+.add-todo-header {
+  width: 100%;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 20px;
+  font-weight: 800;
+  color: var(--purple);
+  border-bottom: 1px solid rgb(241, 241, 241);
+}
+.add-todo-header .close {
+  font-size: 1em;
+  cursor: pointer;
+}
+.add-todo-header .close:hover {
+  color: var(--primary-clr);
+}
+.todo-header-title {
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+.add-todo-main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  font-family: "Myraid";
+  gap: 5px;
+  padding: 20px;
+}
+.add-todo-input {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.add-todo-input input {
+  width: 100%;
+  height: 100%;
+  padding: 10 10px;
+
+  outline: none;
+  border: none;
+  border-bottom: 1px solid rgb(241, 241, 241);
+
+  font-size: 1rem;
+  font-weight: 400;
+  color: rgb(79, 79, 79);
+}
+.add-todo-input input::placeholder {
+  font-family: "Arita";
+  color: var(--primary-clr);
+}
+.add-todo-input input:focus {
+  border-color: var(--pink-down);
+}
+.add-todo-input input:focus::placeholder {
+  color: var(--purple);
+}
+
+/* 세부내용 입력 버튼 wrapper */
+.add-todo-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+/* 세부내용 입력 완료 버튼 */
+.add-todo-btn {
+  height: 30px;
+  font-size: 1rem;
+  font-weight: 800;
+
+  color: rgb(79, 79, 79);
+  /* background-color: var(--primary-clr); */
+  border-radius: 5px;
+  padding: 5px 10px;
+  /* border: 1px solid var(--red-bright); */
+}
+.add-todo-btn:hover {
+  color: white;
+  background-color: var(--purple);
+}
+
+/* todo list 칸 추가를 위한 버튼 
+=> 클릭하면 세부내용 입력칸 active 활성화되도록 */
+/* 하단 플러스 버튼 */
+.add-todolist-btn {
+  height: 40px;
+  width: 40px;
+
+  position: absolute;
+  bottom: 25px;
+  right: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1rem;
+  border: 2px solid var(--red);
+  border-radius: 50%;
+  opacity: 0.7;
+  /* background-color: transparent; */
+  cursor: pointer;
+}
+.add-todolist-btn:hover {
+  opacity: 1;
+  color: var(--red);
+}
+.add-todolist-btn:hover i {
+  transform: scale(1.4);
+}
+.add-todolist-btn > i {
+  pointer-events: none;
+}

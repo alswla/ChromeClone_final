@@ -1,0 +1,16 @@
+@font-face {
+  font-family: "Arita";
+  src: local(Arita-buriM), local(Arita-buriL);
+  src: url(../font/Arita-buriL.woff);
+}
+@font-face {
+  font-family: "Myriad";
+  src: local(MYRIADPRO-REGULAR);
+  src: url(../font/MYRIADPRO-REGULAR.woff);
+  unicode-range: U+0041-005A, U+0061-007A;
+}
+@font-face {
+  font-family: "OpenSans";
+  src: local(OpenSans);
+  unicode-range: U+3041-3096, U+309D, U+309E, U+30A1-30FA, U+30FC;
+}

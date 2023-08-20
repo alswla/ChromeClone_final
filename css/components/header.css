@@ -1,0 +1,24 @@
+#topMenu {
+  width: 100%;
+  height: 30px;
+  background-color: var(--red);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.leftMenu {
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+}
+.tabBarCloseBtnImg {
+  width: 15px;
+  height: 15px;
+  filter: invert();
+  margin-right: 15px;
+}
+.homeBtnImg {
+  width: 15px;
+  height: 15px;
+  filter: invert();
+}
