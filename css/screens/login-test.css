@@ -1,5 +1,5 @@
-@import "./components/reset.css";
-@import "./components/font.css";
+@import "../components/reset.css";
+@import "../components/font.css";
 
 .indexFirst {
   z-index: 100;
