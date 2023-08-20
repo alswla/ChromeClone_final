@@ -473,7 +473,8 @@ const todaybtn = document.querySelector(".goToToday");
 
 inboxbtn.addEventListener("click", (e) => {
   window.location.href =
-    "/Users/chloe/Desktop/Nomad coder/vanilla_nomadcoder_final_2023/html/calendar.html";
+    "/Users/chloe/Desktop/Nomad coder/ChromeClone_final/javascript/calendar.js";
+  document.title = "너의 날들은";
 });
 
 // ------------------------------------------------
