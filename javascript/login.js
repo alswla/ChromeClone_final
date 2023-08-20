@@ -8,7 +8,7 @@ function handleEnter(event) {
     if (username !== "") {
       // 입력된 값이 공백이 아닌 경우에만 페이지 전환
       window.location.href =
-        "/Users/chloe/Desktop/Nomad coder/vanilla_nomadcoder_final_2023/html/calendar.html";
+        "/Users/chloe/Desktop/Nomad coder/vanillajs_nomadcoder_2023/html/calendar.html";
       localStorage.setItem("username", username);
     }
   }
