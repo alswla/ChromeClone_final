@@ -473,7 +473,7 @@ function getTodoFromStorage() {
 
 inboxbtn.addEventListener("click", (e) => {
   window.location.href =
-    "/Users/chloe/Desktop/Nomad coder/ChromeClone_final/javascript/calendar.js";
+    "/Users/chloe/Desktop/Nomad coder/ChromeClone_final/html/calendar.html";
   document.title = "너의 날들은";
 });
 
