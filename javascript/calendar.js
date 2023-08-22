@@ -457,7 +457,7 @@ function saveTodoInStoarge() {
   localStorage.setItem("tasks", JSON.stringify(todoArr));
 }
 
-// 불러오기
+// 불러오기 - 원래버전
 // function getTodoFromStorage() {
 //   if (localStorage.getItem("tasks" === null)) {
 //     return;
@@ -465,7 +465,7 @@ function saveTodoInStoarge() {
 
 //   todoArr.push(...JSON.parse(localStorage.getItem("tasks"))); // todoArr에서 tasks property의 value값을 불러와라
 // }
-
+// 불러오기 - 고친버전 (깃허브 배포 오류로 인함)
 function getTodoFromStorage() {
   if (localStorage.getItem("tasks") === null) {
     return [];
@@ -473,7 +473,7 @@ function getTodoFromStorage() {
 
   return JSON.parse(localStorage.getItem("tasks"));
 }
-
+console.dir(JSON.parse(localStorage.getItem("tasks")));
 // ------------------------------------------------
 // 페이지 이동 버튼 PART
 

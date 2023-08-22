@@ -70,3 +70,39 @@ rightArrow.addEventListener("click", onRightImgChange);
 currenBackground();
 
 dots.forEach((item) => item.addEventListener("click", onClickDotBtn));
+
+// 코드 리뷰 받아서 수정한 코드
+/* function onClickDotBtn(event) {
+  const dotsIndex = dots.indexOf(event.target);
+  displayImage(false, false, dotsIndex);
+}
+
+function onRightImgChange(e) {
+  displayImage(true, false);
+}
+
+function onLeftImgChange(e) {
+  displayImage(false, true);
+}
+
+function displayImage(isRight = false, isLeft = false, dotsIndex) {
+  const currentImg = document.querySelector(.${SHOWING_CLASS});
+  if (currentImg) {
+      currentImg.classList.remove(SHOWING_CLASS);
+      currentImg.classList.add(HIDDEN_CLASS);
+      let selectedImage = null; 
+      if (isRight) {
+          selectedImage = currentImg.nextElementSibling ? currentImg.nextElementSibling : firstImg;
+      } else if (isLeft) {
+          selectedImage = currentImg.previousElementSibling ? currentImg.previousElementSibling : lastImg;
+      } else {
+          if (dotsIndex !== undefined && dotsIndex !== null) {
+              selectedImage = carouselItems[dotsIndex];
+          }
+      }
+      if (selectedImage) {
+          selectedImage.classList.add(SHOWING_CLASS);
+          selectedImage.classList.remove(HIDDEN_CLASS);
+      }
+  }
+} */
